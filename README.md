@@ -59,3 +59,18 @@ To run this project, you need to have the following:
 
    - The program will execute various SQL statements, demonstrating the behavior of ACID properties.
    - Check your PostgreSQL database to observe the changes made during the transactions.
+   
+## Transactions
+
+The Java application performs the following transactions on the sample database:
+
+1. Creates the `Product`, `Depot`, and `Stock` tables if they don't exist.
+2. Deletes all existing data from the `Product` and `Depot` tables.
+3. Inserts sample data into the `Product` and `Depot` tables.
+4. Inserts sample data into the `Stock` table.
+5. Provides commented-out code for three additional transactions:
+   - Transaction 1: Deletes the product `p1` from the `Product` and `Stock` tables.
+   - Transaction 3: Changes the name of product `p1` to `pp1` in the `Product` and `Stock` tables.
+   - Transaction 5: Adds a new product (`p100`, `cd`, `5`) to the `Product` table and corresponding entry (`p100`, `d2`, `50`) in the `Stock` table.
+
+**Note:** The additional transactions are commented out to prevent accidental execution. Uncomment the desired transaction code before running the application.
