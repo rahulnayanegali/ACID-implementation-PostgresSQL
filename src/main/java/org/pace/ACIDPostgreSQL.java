@@ -95,11 +95,11 @@ public class ACIDPostgreSQL {
 
             // Transaction 1: The product p1 is deleted from Product and Stock.
             String deleteProduct = "DELETE FROM Product WHERE prod_id = 'p1'";
-            // stmt.executeUpdate(deleteProduct);
+             stmt.executeUpdate(deleteProduct);
 
             // Transaction 3: The product p1 changes its name to pp1 in Product and Stock.
             String updateProduct = "UPDATE Product SET prod_id='pp1' WHERE prod_id = 'p1'";
-            // stmt.executeUpdate(updateProduct);
+             stmt.executeUpdate(updateProduct);
 
             // Transaction 5: We add a product (p100, cd, 5) in Product and (p100, d2, 50) in Stock.
             String insertNewProduct = "INSERT INTO Product VALUES ('p100', 'cd', 5)";
@@ -111,6 +111,7 @@ public class ACIDPostgreSQL {
 
         } catch (SQLException e) {
             System.out.println("An exception was thrown"+ e);
+
             // For Atomicity
             conn.rollback();
             stmt.close();
