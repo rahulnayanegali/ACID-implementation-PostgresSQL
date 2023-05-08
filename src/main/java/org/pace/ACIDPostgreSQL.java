@@ -1,6 +1,5 @@
 package org.pace;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -29,7 +28,6 @@ public class ACIDPostgreSQL {
         try {
             // Create statement object
             stmt = conn.createStatement();
-
 
             // Either all the statements will execute or none. This is Atomicity.
 
@@ -107,6 +105,10 @@ public class ACIDPostgreSQL {
 
             String insertNewStock = "INSERT INTO Stock VALUES ('p100', 'd2', 50)";
             stmt.executeUpdate(insertNewStock);
+
+//            To Showcase ACID property rollback
+            String insertNewStock1 = "INSERT INTO Stock VALUES ('p100', 'd2', 50)";
+            stmt.executeUpdate(insertNewStock1);
 
 
         } catch (SQLException e) {
